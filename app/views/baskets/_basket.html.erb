@@ -1,0 +1,19 @@
+<h2>Our basket</h2>
+<table>
+  <!-- START_HIGHLIGHT -->
+  <%= render(basket.queue_groceries) %>
+  <!-- END_HIGHLIGHT -->
+
+  <tr class="total_line">
+    <td colspan="2">Total</td>
+    <!-- START_HIGHLIGHT -->
+    <td class="total_cell"><%= number_to_currency(basket.total_price) %></td>
+    <!-- END_HIGHLIGHT -->
+  </tr>
+
+</table>
+
+<!-- START_HIGHLIGHT -->
+<%= button_to 'Empty basket', basket, method: :delete,
+              #END_HIGHLIGHT
+              data: { confirm: 'Are you sure?' } %>

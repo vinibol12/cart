@@ -18,6 +18,7 @@ class ProductsController < ApplicationController
   # GET /products/1
   # GET /products/1.json
   def show
+
   end
 
   # GET /products/new
@@ -29,7 +30,6 @@ class ProductsController < ApplicationController
 
   # GET /products/1/edit
   def edit
-    @product = Product.find(params[:id])
   end
 
   # POST /products
@@ -97,6 +97,12 @@ class ProductsController < ApplicationController
     def set_product
 
       @product = Product.find(params[:id])
+    rescue ActiveRecord::RecordNotFound
+      redirect_to products_path
+      #here is a bit of playing around that I did just putting in practice
+      #some knowledge adquired. In case the user types a product_path that
+      #does not exist instead a nasty error page they will be redirected to
+      # products list
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

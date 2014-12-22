@@ -1,0 +1,12 @@
+<!-- this is a partial we'll render for the basket/show template
+it is interesting that we change some things
+here we delete the loop and instead we make the call for the object'
+attribuites using the relation @basket.queue_groceries that the template
+carries. with that we are calling all the queue_groceries objects we
+have in that basket and because of that we can just here make the singular
+call queue_grocery.quantity that rails knows which object the call is for-->
+    <tr>
+      <td>  <%= queue_grocery.quantity %> &times;</td>
+      <td><%= queue_grocery.product.title %></td>
+      <td class="item price"><%= number_to_currency(queue_grocery.total_price) %></td>
+    </tr>

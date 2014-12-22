@@ -1,0 +1,41 @@
+<% if notice  %>
+<p id="notice"><%= notice %></p>
+<% end %>
+
+<% if @count >= 5 %>
+<%= "You have visited this page #{@count} times" %>
+    <% end %>
+
+
+<h1>Your Catalog</h1>
+<!-- now in this file we created a loop for all the objects loaded in @products to be displayed in the html.
+we pass the block with the object product and then we call the  attributes of the instance of Product. -->
+<% @products.each do |product| %>
+    <div class="entry"> <%= image_tag(product.image_url) %>
+    <!-- here we have the attribute :image_url called on the object product as parameter for image_tag that, acccording
+     to rails api Returns an HTML image tag for the source. The source can be a full path or a file. in our case it is
+     a file -->
+    <h3><%= product.title %></h3>
+    <!-- a bit simples we have the attribute title called on the object-->
+    <%= sanitize(product.description) %>
+    <!-- in the same way as with the product.title we have description attribute called on the object and the method
+    sanitize called on the result. The api for sanitize says 'This sanitize helper will html encode all tags and strip
+    all attributes that aren’t specifically allowed.'I didnt really understand what that means though-->
+
+    <div class="price_line">
+      <span class="price">
+        <%= number_to_currency(product.price) %>
+
+      </span>
+    <%= button_to 'Add to Basket',  queue_groceries_path(product_id: product) %>
+    <!-- this method button_to calls a http method POST. according to our routes settings this method
+    combined to queue_groceries_path redirect us to the create method in the  queue_groceries_controller
+     POST   /queue_groceries(.:format)          queue_groceries#create. THen we pass the option product_id
+     through which rails will know that we want the id of that very object in case. -->
+
+    </div>
+    </div>
+
+
+<% end %>
+

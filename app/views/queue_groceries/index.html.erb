@@ -1,0 +1,27 @@
+<h1>Listing queue_groceries</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Product</th>
+      <th>Cart</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @queue_groceries.each do |queue_grocery| %>
+      <tr>
+        <td><%= queue_grocery.product %></td>
+        <td><%= queue_grocery.basket %></td>
+        <td><%= link_to 'Show', queue_grocery %></td>
+        <td><%= link_to 'Edit', edit_queue_grocery_path(queue_grocery) %></td>
+        <td><%= link_to 'Destroy', queue_grocery, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Queue grocery', new_queue_grocery_path %>

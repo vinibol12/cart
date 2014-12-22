@@ -11,7 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141210083719) do
+ActiveRecord::Schema.define(version: 20141218082608) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+  enable_extension "adminpack"
+
+  create_table "baskets", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "products", force: true do |t|
     t.string   "title"
@@ -21,5 +30,16 @@ ActiveRecord::Schema.define(version: 20141210083719) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "queue_groceries", force: true do |t|
+    t.integer  "product_id"
+    t.integer  "basket_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "quantity",   default: 1
+  end
+
+  add_index "queue_groceries", ["basket_id"], name: "index_queue_groceries_on_cart_id", using: :btree
+  add_index "queue_groceries", ["product_id"], name: "index_queue_groceries_on_product_id", using: :btree
 
 end
