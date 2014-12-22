@@ -2,8 +2,8 @@
 
 one:
   product_id: 
-  cart_id: 
+  basket_id:
 
 two:
   product_id: 
-  cart_id: 
+  basket_id:
