@@ -8,7 +8,8 @@ class BasketsControllerTest < ActionController::TestCase
   test "should get index" do
     get :index
     assert_response :success
-    assert_not_nil assigns(:baskets)
+    assert_not_nil assigns(:basket)
+
   end
 
   test "should get new" do

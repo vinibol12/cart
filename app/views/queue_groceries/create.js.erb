@@ -1,0 +1,11 @@
+$('#notice').hide();
+
+if ($('#basket').length == 1) {$('#basket').show('blind', 1000);}
+
+$('#basket').html("<%= escape_javascript render(@basket) %>");
+
+$('#current_item').css({'background-color':'#88ff88'}).animate({'background-color':'#114411'}, 1000);
+ //See how we identified the browser element that we wanted to apply the effect to by passig ​’
+ //current_item’​ to the ​$​ function? We then called ​css​ to set the initial background color and followed
+ //up with a call to the ​animate​ method to transition back to the original color used by our layout over
+ //a period of ​1000​ milliseconds, more commonly known as one second.

@@ -15,6 +15,7 @@ class BasketsController < ApplicationController
 
   # GET /baskets/new
   def new
+    puts 'ello'
     @basket = Basket.new
   end
 
@@ -60,7 +61,7 @@ class BasketsController < ApplicationController
       session[:basket_id] = nil
 
     respond_to do |format|
-      format.html { redirect_to store_url, notice: 'Your basket is currently empty.' }
+      format.html { redirect_to store_url }
       format.json { head :no_content }
 
     end
@@ -78,7 +79,7 @@ class BasketsController < ApplicationController
     end
 
     def invalid_basket
-      logger.error "Attemp to access invalid basket #{params[:id]}"
+      logger.error "Attempt to access invalid basket #{params[:id]}"
 
       redirect_to store_url, notice: 'Invalid Basket'
 

@@ -1,19 +1,27 @@
-<h2>Our basket</h2>
-<table>
+    <% unless basket.queue_groceries.empty? %>
+
+<div class="basket"> Our basket</div>
+    <table>
   <!-- START_HIGHLIGHT -->
-  <%= render(basket.queue_groceries) %>
-  <!-- END_HIGHLIGHT -->
+    <%= render(basket.queue_groceries) %>
 
-  <tr class="total_line">
-    <td colspan="2">Total</td>
-    <!-- START_HIGHLIGHT -->
-    <td class="total_cell"><%= number_to_currency(basket.total_price) %></td>
     <!-- END_HIGHLIGHT -->
-  </tr>
 
-</table>
+    <tr class="total_line">
+      <td colspan="2">Total</td>
+      <!-- START_HIGHLIGHT -->
+      <td class="total_cell"><%= number_to_currency(basket.total_price) %></td>
+      <!-- END_HIGHLIGHT -->
+    </tr>
+
+  </table>
 
 <!-- START_HIGHLIGHT -->
-<%= button_to 'Empty basket', basket, method: :delete,
-              #END_HIGHLIGHT
-              data: { confirm: 'Are you sure?' } %>
+        <% unless current_page?(new_order_path) %>
+        <%= button_to 'Check out', new_order_path, method: :get %>
+        <% end %>
+
+        <%= button_to 'Empty basket', basket, method: :delete, confirm: 'Are you sure?'  %>
+
+<% end %>
+

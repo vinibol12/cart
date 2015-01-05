@@ -11,35 +11,53 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141218082608) do
+ActiveRecord::Schema.define(version: 20150105214122) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "adminpack"
 
-  create_table "baskets", force: true do |t|
+  create_table "baskets", force: :cascade do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "products", force: true do |t|
-    t.string   "title"
+  create_table "orders", force: :cascade do |t|
+    t.string   "name"
+    t.text     "address"
+    t.string   "email"
+    t.string   "pay_type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "payment_types", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "products", force: :cascade do |t|
+    t.string   "title",       limit: 255
     t.text     "description"
-    t.string   "image_url"
-    t.decimal  "price",       precision: 8, scale: 2
+    t.string   "image_url",   limit: 255
+    t.decimal  "price",                   precision: 8, scale: 2
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "queue_groceries", force: true do |t|
+  create_table "queue_groceries", force: :cascade do |t|
     t.integer  "product_id"
     t.integer  "basket_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "quantity",   default: 1
+    t.integer  "order_id"
   end
 
-  add_index "queue_groceries", ["basket_id"], name: "index_queue_groceries_on_cart_id", using: :btree
+  add_index "queue_groceries", ["basket_id"], name: "index_queue_groceries_on_basket_id", using: :btree
+  add_index "queue_groceries", ["order_id"], name: "index_queue_groceries_on_order_id", using: :btree
   add_index "queue_groceries", ["product_id"], name: "index_queue_groceries_on_product_id", using: :btree
 
+  add_foreign_key "queue_groceries", "orders"
 end

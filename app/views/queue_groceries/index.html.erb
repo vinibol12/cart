@@ -12,7 +12,7 @@
   <tbody>
     <% @queue_groceries.each do |queue_grocery| %>
       <tr>
-        <td><%= queue_grocery.product %></td>
+        <td><%= queue_grocery.product %></td    >
         <td><%= queue_grocery.basket %></td>
         <td><%= link_to 'Show', queue_grocery %></td>
         <td><%= link_to 'Edit', edit_queue_grocery_path(queue_grocery) %></td>

@@ -2,8 +2,14 @@ class QueueGroceriesController < ApplicationController
 
   include CurrentBasket
 
-  before_action :set_basket, only: [:create]
-  before_action :set_queue_grocery, only: [:show, :edit, :update, :destroy]
+  before_action :set_basket, only: [:create, :decrement]
+  # When using the js the decrement action wasn't being able to render the @basket
+  #I found out it was not even loading @basket when the PUT request was being processed by looking at the logs
+  #turns out I had to set_basket before using this action otherwise it would not load the @basket partial being not able
+  #to render it as the request was completed
+  before_action :set_queue_grocery, only: [:show, :edit, :update, :destroy, :decrement ]
+  #had a hard time to set the decrement action. Only worked it out once I defined that before the decrement
+  #method the set_queue_grocery  private action should be triggered.
 
   # GET /queue_groceries
   # GET /queue_groceries.json
@@ -27,7 +33,7 @@ class QueueGroceriesController < ApplicationController
 
   # POST /queue_groceries
   # POST /queue_groceries.json
-  def create
+def create
     product = Product.find(params[:product_id])
 # here we are creating a new kind of relationship from what we've seen so far
    #the product that was added to the basket in the store through the button will
@@ -47,7 +53,14 @@ class QueueGroceriesController < ApplicationController
 
     respond_to do |format|
       if @queue_grocery.save
-        format.html { redirect_to @queue_grocery.basket }
+        format.html { redirect_to store_url }
+        format.js { @current_item = @queue_grocery }
+        # by assigning the @queue_grocery we intend to identify the latest update of the basket
+        #to then be able to use the effect blind in that one specifically . since @queue_grocery
+        # will be the what is happening when we are calling the create action we have the reference
+        # for the use of the effect in @current_item. in this case it will happen when the js is used to add
+         # queue_grocery. So it takes us for a change in _queue_grocery.html.erb
+
         format.json { render :show, status: :created, location: @queue_grocery }
       else
         format.html { render :new }
@@ -80,7 +93,35 @@ class QueueGroceriesController < ApplicationController
     end
   end
 
+  #PUT/queue_groceries/1
+  #PUT/queue_groceries/1.json
+
+  def decrement
+    #this method works in conjunction with the decrement_one method, which is defined in the queue_grocery model
+    # def decrement_one
+    #  if self.quantity > 1  // this quantity is actually the quantity Queue_grocery'  attribute defined in the schema_migration
+    #    self.quantity -= 1  // by calling self we are calling the current content of the object we are calling this method
+    #  else                  // upon. so if the @queue_grocery object has in it' quantity attribute the value 5 then the -= 1 magic will happen there.
+    #    self.destroy
+    #  end
+    #  self
+    #end
+    @queue_grocery.decrement_one
+      respond_to do |format|
+        if @queue_grocery.save
+          format.js {  }
+          format.html { redirect_to store_url }
+
+        end
+      end
+  end
+
+
+
+
   private
+
+
     # Use callbacks to share common setup or constraints between actions.
     def set_queue_grocery
       @queue_grocery = QueueGrocery.find(params[:id])

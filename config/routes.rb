@@ -1,12 +1,24 @@
 Rails.application.routes.draw do
 
-  resources :queue_groceries
+  resources :orders
+
+  resources :queue_groceries do
+
+    put 'decrement', on: :member
+
+  end
+
 
   resources :baskets
 
+
   get 'store/index'
 
-  resources :products
+  resources :products do
+    get :who_bought, on: :member
+  end
+
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

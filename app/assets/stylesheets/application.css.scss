@@ -9,12 +9,11 @@
  * You're free to add application-wide styles to this file and they'll appear
  * at the top of the compiled file, but it's generally better to create a new
  * file per style scope.
- *
  *= require_self
  *= require_tree .
  */
 
-/* START_HIGHLIGHT */
+
 #banner {
   background: #9c9;
   padding: 10px;
@@ -50,7 +49,7 @@
   #side {
     float: left;
     padding: 1em 2em;
-    width: 13em;
+    width: 15em;
     background: #141;
 
     /* START_HIGHLIGHT */
@@ -62,7 +61,7 @@
       font-size: small;
     }
 
-    #cart {
+    #basket {
       font-size: smaller;
       color:     white;
 
@@ -89,3 +88,41 @@
   }
   //#END:side
 }
+
+//START : form
+
+.basket_form {
+  fieldset {
+    background: #efe;
+
+    legend {
+      color: #dfd;
+      background: #141;
+      font-family: sans-serif;
+      padding: 0.2em 1em;
+    }
+  }
+  //as we see we can define the style fot the form in here since it is
+  // weird since I cant see the form tag anywhere in the view. Maybe it
+  // is the one on  <%= render 'form' %>
+  form {
+     label {
+       width: 5em;
+       float: left;
+       text-align: right;
+       padding-top: 0.2em;
+       margin-right: 0.1em;
+       display: block;
+     }
+    select, textarea, input {
+      margin-left: 0.5em;
+    }
+    .submit {
+      margin-left: 4em;
+    }
+    br {
+      display: none;
+    }
+  }
+}
+//END: form
