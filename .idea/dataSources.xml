@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="DataSourceManagerImpl" format="xml" hash="1689928981">
+  <component name="DataSourceManagerImpl" format="xml" hash="1113608440">
     <data-source source="LOCAL" name="Rails Cart: development" uuid="ee184c96-e0a9-4487-8405-3af48d2c18e4">
       <driver-ref>postgresql</driver-ref>
       <synchronize>true</synchronize>
