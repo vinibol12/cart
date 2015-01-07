@@ -46,6 +46,7 @@ include CurrentBasket
       if @order.save
         Basket.destroy(session[:basket_id])
         session[:basket_id] = nil
+        OrderNotifier.received(@order).deliver_now
         format.html { redirect_to store_url, notice: 'Thank you for your order' }
         format.json { render :show, status: :created, location: @order }
       else

@@ -10,13 +10,13 @@ class PaymentType < ActiveRecord::Base
   end
 
 
-  validates_each :pay_type do |model, attr, value|
-    #here we validate the pay_type field for the form. again we have a block with 3 objects.
-    #from now I'm lost. Need help to figure out how the three blocck objects interact in the rest
-    #of the method.
-    if !PaymentType.names.include?(value)
-    model.errors.add(attr, "Payment type not in the list")
-  #in this
-    end
-  end
+  # validates_each :pay_type do |model, attr, value|
+  #   #here we validate the pay_type field for the form. again we have a block with 3 objects.
+  #   #from now I'm lost. Need help to figure out how the three blocck objects interact in the rest
+  #   #of the method.
+  #   if !PaymentType.names.include?(value)
+  #   model.errors.add(attr, "Payment type not in the list")
+  # #in this
+  #   end
+  # end
 end

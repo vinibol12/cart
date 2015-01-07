@@ -7,6 +7,7 @@ class Order < ActiveRecord::Base
 
   validates :name, :address, :email, presence: true
   validates :pay_type, inclusion: PAYMENT_TYPES
+
   def add_queue_groceries_from_basket(basket)
     #method that adds the groceries that are in the basket to the o
     # order.
@@ -19,5 +20,6 @@ class Order < ActiveRecord::Base
       # create action.
     end
   end
+
 end
 

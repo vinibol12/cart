@@ -28,7 +28,7 @@ we pass the block with the object product and then we call the  attributes of th
         <%= number_to_currency(product.price) %>
 
       </span>
-    <%= button_to 'Add to Basket',  queue_groceries_path(product_id: product), remote: true %>
+    <%= button_to 'Add to Basket',  queue_groceries_path(product_id: product) %>
     <!-- this method button_to calls a http method POST. according to our routes settings this method
     combined to queue_groceries_path redirect us to the create method in the  queue_groceries_controller
      POST   /queue_groceries(.:format)          queue_groceries#create. THen we pass the option product_id

@@ -3,7 +3,6 @@
   <component name="dataSourceStorageLocal">
     <data-source name="Rails Cart: development" uuid="ee184c96-e0a9-4487-8405-3af48d2c18e4">
       <secret-storage>master_key</secret-storage>
-      <user-name>Cart</user-name>
       <user-password>dfe9dfcbdfd8dfde</user-password>
     </data-source>
   </component>

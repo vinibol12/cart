@@ -15,7 +15,6 @@ class BasketsController < ApplicationController
 
   # GET /baskets/new
   def new
-    puts 'ello'
     @basket = Basket.new
   end
 

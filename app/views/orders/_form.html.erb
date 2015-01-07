@@ -19,12 +19,13 @@
     <%= f.label :address, rows: 3, cols: 40 %><br>
     <%= f.text_area :address %>
   </div>
-  <div class="field">
-    <%= f.label :email  %><br>
-    <%= f.text_field :email, size: 40 %>
-  </div>
-  <div class="field">
-    <%= f.label :pay_type %><br> <!-- label turns out to be the actual label
+
+    <div class="field">
+      <%= f.label :email  %><br>
+      <%= f.text_field :email, size: 40 %>
+    </div>
+   <div>
+      <%= f.label :pay_type %><br> <!-- label turns out to be the actual label
     for the field, carring the name on the left side of the field. :pay_type is the
     attibute of the object we declared for our class in the migration.
     This will refer to our model as the data entry for the Order table in the

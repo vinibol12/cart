@@ -22,7 +22,9 @@
   <div id="side">
     <div id="basket">
 
-      <%= render @basket %>
+      <% if @basket.present? %>
+        <%= render @basket %>
+      <% end %>
 
           </div>
     <ul>

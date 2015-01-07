@@ -4,7 +4,7 @@ class ProductsControllerTest < ActionController::TestCase
   setup do
     @product = products(:one)
     @update = { title: 'Whey protein', description: 'fica grande porra', image_url: 'lorem.jpg', price: 90 }
-
+    @basket = Basket.new
   end
 
   test "should get index" do
