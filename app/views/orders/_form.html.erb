@@ -32,7 +32,7 @@
     specific column. -->
 
     <%= f.select :pay_type, PaymentType.names, prompt: 'Select a payment method' %>
-    <!-- <%# f.select :pay_type, Order::PAYMENT_TYPES, prompt: 'Select a payment method' %>
+    <% #f.select :pay_type, Order::PAYMENT_TYPES, prompt: 'Select a payment method' %>
         <!-- In my understanding select is a method that creates a form field
         that has a drop-down list displaying a range of selection options according
         to what is made available in the parameters. we place our references in the
