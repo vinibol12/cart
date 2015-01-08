@@ -5,9 +5,9 @@ class Order < ActiveRecord::Base
 
   PAYMENT_TYPES = [ "Check", "Credit Card", "Purchase Order" ]
 
-  validates :pay_type, :inclusion => PaymentType.names
+  # validates :pay_type, :inclusion => PaymentType.names
   validates :name, :address, :email, presence: true
-  #validates :pay_type, inclusion: PAYMENT_TYPES
+  validates :pay_type, inclusion: PAYMENT_TYPES
 
   def add_queue_groceries_from_basket(basket)
     #method that adds the groceries that are in the basket to the o
