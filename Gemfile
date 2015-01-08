@@ -2,6 +2,8 @@ source 'https://rubygems.org'
 
 ruby '2.1.5'
 
+# required by heroku in production
+gem 'rails_12factor', group: :production
 
 gem 'pg'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
