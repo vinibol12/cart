@@ -2,6 +2,8 @@ source 'https://rubygems.org'
 
 ruby '2.1.5'
 
+gem 'mini_portile', '0.6.2'
+
 gem 'pg'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
