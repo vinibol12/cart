@@ -1,0 +1,37 @@
+  <!-- “This form is different from ones we saw earlier.
+  Rather than using ​form_for​, it uses ​form_tag​, which simply
+  builds a regular HTML ​<form>​. Inside that form, it uses ​
+  text_field_tag​ and ​password_field_tag​, two helpers that
+  create HTML ​<input>​ tags. Each helper takes two parameters.
+  The first is the name to give to the field, and the second
+  is the value with which to populate the field. This style
+  of form allows us to associate values in the ​params​ structure
+  directly with form fields—no model object is required. In
+  our case, we chose to use the ​params​ object directly in
+  the form. An alternative would be to have the controller
+  set instance variables.” -->
+
+<div class="cart_form">
+  <% if flash[:alert] %>
+      <p id="notice"><%= flash[:alert] %></p>
+  <% end %>
+  <%= form_tag do %>
+      <fieldset>
+        <legend>Please Log In</legend>
+        <div>
+          <%= label_tag :name, 'Name:' %>
+          <%= text_field_tag :name, params[:name] %>
+        </div>
+        <div>
+          <%= label_tag :password, 'Password:' %>
+          <%= password_field_tag :password, params[:password] %>
+        </div>
+        <div>
+          <%= submit_tag "Login" %>
+        </div>
+      </fieldset>
+  <% end %>
+</div>
+
+
+

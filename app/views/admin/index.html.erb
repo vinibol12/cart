@@ -1,0 +1,6 @@
+<h1>Welcome </h1>
+
+It is <%= Time.now %>.
+We have <%= pluralize(@total_orders, "order") %>.
+
+<%= button_to 'Log out', logout_path, method: :delete  %>

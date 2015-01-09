@@ -41,10 +41,23 @@ class BasketsControllerTest < ActionController::TestCase
   end
 
   test "should destroy basket" do
+
     assert_difference('Basket.count', -1) do
       delete :destroy, id: @basket
     end
 
-    assert_redirected_to baskets_path
+    assert_redirected_to store_path
   end
+
+  # def destroy
+  #
+  #   @basket.destroy if @basket.id == session[:basket_id]
+  #   session[:basket_id] = nil
+  #
+  #   respond_to do |format|
+  #     format.html { redirect_to store_url }
+  #     format.json { head :no_content }
+  #
+  #   end
+  # end
 end
