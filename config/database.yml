@@ -11,7 +11,7 @@
  test:
    adapter: postgresql
    encoding: unicode
-   database: postgres
+   database: cart_test
    pool: 5
    username: cart_test
    password: cart_test

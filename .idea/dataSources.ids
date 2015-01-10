@@ -2394,7 +2394,7 @@
       <column name="created_at" sqlType="timestamp" precision="29" scale="6" nullable="false" jdbcType="93"/>
       <column name="updated_at" sqlType="timestamp" precision="29" scale="6" nullable="false" jdbcType="93"/>
       <primary-key name="orders_pkey" columns="id"/>
-      <exported-key name="fk_rails_1fc9a0870d" table="queue_groceries" schema="public" catalog="postgres" columns="order_id"/>
+      <exported-key name="fk_rails_f07fff7211" table="queue_groceries" schema="public" catalog="postgres" columns="order_id"/>
     </table>
     <table name="orders_id_seq" schema="public" catalog="postgres" type="SEQUENCE">
       <column name="sequence_name" sqlType="name" precision="2147483647" scale="0" nullable="false" jdbcType="12"/>
@@ -2458,7 +2458,7 @@
       <column name="quantity" sqlType="int4" precision="10" scale="0" nullable="true" jdbcType="4" def="MQ=="/>
       <column name="order_id" sqlType="int4" precision="10" scale="0" nullable="true" jdbcType="4"/>
       <primary-key name="queue_groceries_pkey" columns="id"/>
-      <foreign-key name="fk_rails_1fc9a0870d" columns="order_id" ref-table="orders" ref-schema="public" ref-catalog="" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="fk_rails_f07fff7211" columns="order_id" ref-table="orders" ref-schema="public" ref-catalog="" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
       <index name="index_queue_groceries_on_basket_id" unique="false" columns="basket_id"/>
       <index name="index_queue_groceries_on_order_id" unique="false" columns="order_id"/>
       <index name="index_queue_groceries_on_product_id" unique="false" columns="product_id"/>
