@@ -69,7 +69,7 @@ class BasketsController < ApplicationController
         end
     end
   end
-  
+
 
 
   private
