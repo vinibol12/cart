@@ -5,6 +5,8 @@
       <secret-storage>master_key</secret-storage>
       <user-name>cart_development</user-name>
       <user-password>dfe9dfcbdfd8dfde</user-password>
+      <schema-pattern>cart_development.public</schema-pattern>
+      <default-schemas>cart_development.pg_catalog cart_development.public</default-schemas>
     </data-source>
   </component>
 </project>

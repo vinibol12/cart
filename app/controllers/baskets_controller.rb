@@ -58,15 +58,19 @@ class BasketsController < ApplicationController
   # DELETE /baskets/1.json
   def destroy
 
-    @basket.destroy if @basket.id == session[:basket_id]
+    @basket.destroy
+    if @basket.id == session[:basket_id]
       session[:basket_id] = nil
 
     respond_to do |format|
       format.html { redirect_to store_url }
       format.json { head :no_content }
 
+        end
     end
   end
+  
+
 
   private
     # Use callbacks to share common setup or constraints between actions.

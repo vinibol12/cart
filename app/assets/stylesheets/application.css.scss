@@ -15,11 +15,11 @@
 
 
 #banner {
-  background: #9c9;
+  background: #141;
   padding: 10px;
   border-bottom: 2px solid;
-  font: small-caps 40px/40px "Times New Roman", serif;
-  color: #282;
+  font: small-caps 40px/40px "Comic Sans", serif;
+  color: #bfb;
   text-align: center;
 
   img {
@@ -42,7 +42,8 @@
   #main {
     margin-left: 22em;
     padding: 1em;
-    background: white;
+    background: #bfb;
+    height: 100em;
   }
 
   //#START:side
@@ -51,6 +52,7 @@
     padding: 1em 2em;
     width: 18em;
     background: #141;
+    height: 100em;
 
     /* START_HIGHLIGHT */
     form, div {

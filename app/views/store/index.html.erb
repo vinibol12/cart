@@ -4,17 +4,14 @@
 <p id="notice"><%= notice %></p>
 <% end %>
 
-<% if @count >= 5 %>
-<%= "You have visited this page #{@count} times" %>
-    <% end %>
 
 
-<h1>Your Catalog</h1>
+<h1>Our Books</h1>
 <!-- now in this file we created a loop for all the objects loaded in @products to be displayed in the html.
 we pass the block with the object product and then we call the  attributes of the instance of Product. -->
 <% cache ['store', Product.latest ] do %>
   <% @products.each do |product| %>
-    <div class="entry"> <%= image_tag(product.image_url) %>
+    <div class="entry"> <%=  link_to image_tag(product.image_url), queue_groceries_path(product_id: product), method: :post, remote: true %>
     <!-- here we have the attribute :image_url called on the object product as parameter for image_tag that, acccording
      to rails api Returns an HTML image tag for the source. The source can be a full path or a file. in our case it is
      a file -->

@@ -4,7 +4,7 @@
 <html>
 <head>
   <!-- START_HIGHLIGHT -->
-  <title>Pragprog Books Online Store</title>
+  <title>Vini's Online Store</title>
   <!-- END_HIGHLIGHT -->
   <!-- <label id="code.slt"/> --><%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
 
@@ -15,8 +15,8 @@
 <body class="<%= controller.controller_name %>">
 <!-- START_HIGHLIGHT -->
 <div id="banner">
-  <%= image_tag("logo.png") %>
-  <%= @page_title || "Your Bookshelf" %><!-- <label id="code.depot.e.title"/> -->
+  <%= link_to image_tag("bookshelp.jpg"), store_index_path %>
+  <%= link_to @page_title || "Vini's Bookshelf", store_index_path %><!-- <label id="code.depot.e.title"/> -->
 </div>
 <div id="columns">
   <div id="side">
@@ -28,10 +28,10 @@
 
     </div>
     <ul>
-      <li><a href="http://www....">Home</a></li>
-      <li><a href="http://www..../faq">Questions</a></li>
-      <li><a href="http://www..../news">News</a></li>
-      <li><a href="http://www..../contact">Contact</a></li>
+      <li><a href="http://localhost:3000">HOME</a></li>
+      <li><a href="http://www..../news">NEWS</a></li>
+      <li><a href="http://www..../faq">FAQ</a></li>
+      <li><a href="http://www..../contact">CONTACT</a></li>
     </ul>
 
     <% if session[:user_id] %>
@@ -41,7 +41,11 @@
       <li><%= link_to 'Users',    users_path    %></li>
     </ul>
         <%= button_to 'Logout', logout_path, method: :delete %>
-        <% end %>
+  <% end %>
+
+    <div>Be in to win a ticket for Foo Fighters Concert <a href="http://localhost:3000/users">here</a></div>
+    <iframe width="250" height="170" src="//www.youtube.com/embed/V_YlZ1JdcVk" frameborder="0" allowfullscreen></iframe>
+
   </div>
   <div id="main">
     <!-- END_HIGHLIGHT -->

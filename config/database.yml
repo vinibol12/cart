@@ -3,7 +3,7 @@
  development:
    adapter: postgresql
    encoding: unicode
-   database: postgres
+   database: cart_development
    pool: 5
    username: cart_development
    password: cart_development

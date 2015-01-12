@@ -18,7 +18,7 @@
 
 <!-- START_HIGHLIGHT -->
         <% unless current_page?(new_order_path) %>
-            <%= button_to 'Check out', new_order_path, method: :get  %>
+            <%= button_to 'Check out', new_order_path, method: :get unless controller.controller_name == 'orders' && %w(new create).include?(controller.action_name) %>
         <% end %>
 
         <%= button_to 'Empty basket', basket, method: :delete, confirm: 'Are you sure?'  %>

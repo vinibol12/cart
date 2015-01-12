@@ -12,6 +12,8 @@ gem 'rails', '4.2.0'
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
+#Use ActiveModel has_secure_password
+gem 'bcrypt'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
@@ -28,8 +30,8 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
-#Use ActiveModel has_secure_password
-gem 'bcrypt'
+# gem required to run rake doc:guides which generate usage guides
+gem 'redcarpet'
 
 # Use Unicorn as the app server
 # gem 'unicorn'

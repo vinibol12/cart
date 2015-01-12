@@ -1,6 +1,6 @@
 class QueueGroceriesController < ApplicationController
 
-  skip_before_action :authorize, only: :create
+  skip_before_action :authorize, only: [:create, :decrement]
   include CurrentBasket
 
   before_action :set_basket, only: [:create, :decrement]

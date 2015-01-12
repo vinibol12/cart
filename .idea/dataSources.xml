@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="DataSourceManagerImpl" format="xml" hash="3758364871">
+  <component name="DataSourceManagerImpl" format="xml" hash="4097138586">
     <data-source source="LOCAL" name="Rails Cart: development" uuid="ee184c96-e0a9-4487-8405-3af48d2c18e4">
       <driver-ref>postgresql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
-      <jdbc-url>jdbc:postgresql:postgres</jdbc-url>
+      <jdbc-url>jdbc:postgresql:cart_development</jdbc-url>
       <libraries>
         <library>
           <url>file://$USER_HOME$/Library/Preferences/RubyMine60/jdbc-drivers/postgresql-driver-license.txt</url>
