@@ -28,10 +28,12 @@
 
     </div>
     <ul>
-      <li><a href="http://localhost:3000">HOME</a></li>
-      <li><a href="http://www..../news">NEWS</a></li>
-      <li><a href="http://www..../faq">FAQ</a></li>
-      <li><a href="http://www..../contact">CONTACT</a></li>
+      <li><a href="http://vinisbookshelf.herokuapp.com">HOME</a></li>
+      <li><a href="http://vinisbookshelf.herokuapp.com/public/contact">CONTACT US</a></li>
+      <br>
+      <li><a href="http://vinisbookshelf.herokuapp.com/login">LOGIN</a></li>
+
+
     </ul>
 
     <% if session[:user_id] %>
@@ -42,6 +44,7 @@
     </ul>
         <%= button_to 'Logout', logout_path, method: :delete %>
   <% end %>
+    <br>
 
     <div >Be in to win a ticket for Foo Fighters Concert <a href="http://localhost:3000/users">here</a></div>
     <iframe width="250" height="170" src="//www.youtube.com/embed/V_YlZ1JdcVk" frameborder="0" allowfullscreen></iframe>
@@ -49,11 +52,12 @@
   </div>
   <div id="main">
     <!-- END_HIGHLIGHT -->
-    <%= yield %><!-- <label id="code.depot.e.include"/> -->
+    <%= yield %>
     <!-- START_HIGHLIGHT -->
   </div>
 </div>
 <!-- END_HIGHLIGHT -->
+
 </body>
 </html>
 

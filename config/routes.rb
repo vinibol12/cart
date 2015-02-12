@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
 
 
+  get 'info/contact'
+
+  get 'info/faq'
+
+  get 'info/news'
+
   get 'admin/index'
 
   controller :sessions do

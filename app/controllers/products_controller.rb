@@ -36,33 +36,17 @@ class ProductsController < ApplicationController
   # POST /products.json
   def create
     @product = Product.new(product_params)
-    # when creating a new product, assigns the new product to @product with it's attributes in  params that will
-    # be passed in the form at the view to create this instance.
+
     respond_to do |format|
       if @product.save
-        #if the process of creating the object is sucessful '@product.save', we have different
-        #responses to the browser depending on the format requested
+
         format.html { redirect_to @product, notice: 'Product was successfully created.' }
-                      #we get redirected to @product at the view show with the instance that @product carries
-                      #and we have the message 'Product was .....'
+
         format.json { render :show, status: :created, location: @product }
-                      # in case of json we have the view show rendered.
-                      # searching the difference between render and redirect_to I found this
-                      #redirect_to()
 
-                      # Does a full page redirect sending a 302 html code
-                      #All variables will be lost
-                      #Sends a new request to the system
-
-                      #render()
-
-                      #Sends a 200 html code response
-                      #Holds the state of variables
-                      #The action is not executed, only the view is rendered
       else
         format.html { render :new }
-                       # if it was not saved we can render the form again and the data in the form is not lost?
-                      #according to the explanation above?
+
         format.json { render json: @product.errors, status: :unprocessable_entity }
       end
     end
@@ -108,18 +92,10 @@ class ProductsController < ApplicationController
       @product = Product.find(params[:id])
     rescue ActiveRecord::RecordNotFound
       redirect_to products_path
-      #here is a bit of playing around that I did just putting in practice
-      #some knowledge adquired. In case the user types a product_path that
-      #does not exist instead a nasty error page they will be redirected to
-      # products list
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_params
       params.require(:product).permit(:title, :description, :image_url, :price)
-    #using the symbol :product as a parameter of require this method knows what to look for.
-      #the symbol refers to the object in the inst.var @product that had it' attributes
-      # defined at new.html.erb.
-      #
     end
 end

@@ -41,9 +41,7 @@ include CurrentBasket
   def create
     @order = Order.new(order_params)
     @order.add_queue_groceries_from_basket(@basket)
-    #when we call this method on @order we are grabing all line items that
-    #were in the basket, setting them free from the basket id (since the
-    # basket will be destroyed ahead)
+
     respond_to do |format|
       if @order.save
         Basket.destroy(session[:basket_id])

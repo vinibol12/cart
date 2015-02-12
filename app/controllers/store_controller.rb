@@ -12,10 +12,9 @@ class StoreController < ApplicationController
     @time = Time.now
 
   end
+
+
 end
-#we generated a new controllwe. The store controller. In the routes file we set
-# store#index as the root view. now in the store controller we assigned all the
-#objects of the class Product, ordered by title, to the inst.var. @products
 
 private
 

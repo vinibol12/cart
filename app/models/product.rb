@@ -9,11 +9,6 @@ def self.latest
   Product.order(:updated_at).last
 end
 
-#here we have the model for Product. It is the gate to the db so we can place here
-  #methods that will validate the data entered in the forms. The method validates
-  # receives commands here to make sure that there is a descriptio and a title
-  # in each product created, to make sure that the title is unique and that the price
-  # for each product is greater than 1 cent.
   validates :title, :description, presence: true
   validates :title, uniqueness: true
   validates :price, numericality: {greater_than_or_equal_to: 0.01}
